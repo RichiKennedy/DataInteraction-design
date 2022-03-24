@@ -64,7 +64,7 @@ const Right = styled.div`
 `;
 
 const ContactItem = styled.div`
-  padding-top: 15px;
+  padding-top: 25px;
   display: flex;
   align-items: center;
 `;

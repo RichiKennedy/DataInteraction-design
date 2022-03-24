@@ -79,3 +79,64 @@ export const popularProducts = [
     img: "https://images.blue-tomato.com/is/image/bluetomato/304307885_front.jpg-4efD6LPkz_U8F2hzN5cF9J0WsRQ/Flashbomb+4+3+GB+Chest+Zip+Wetsuit.jpg?$b8$",
   },
 ];
+
+export const SurfboardProducts = [
+  {
+    id: 1,
+    img: "https://images.blue-tomato.com/is/image/bluetomato/304199481_front.jpg-3cnCXvYOHlZgRCcgv3SU4es0wus/Flash+Eric+Geiselman+FCS+II+5+7+Softtop+Surf.jpg?$b8$",
+    name: "SOFTECH FLASH ERIC GEISELMAN FCS II",
+    type: "5'7 SOFTTOP SURF",
+    price: "SEK 3 223,63",
+  },
+  {
+    id: 2,
+    img: "https://images.blue-tomato.com/is/image/bluetomato/304199488_front.jpg-lrzT1cwtOmKOhamMWeb01vQBuI4/II+Toledo+Wildfire+5+3+Softtop+Surfboard.jpg?$b8$",
+    name: "SOFTECH FLASH ERIC GEISELMAN FCS II",
+    type: "6'0 SOFTTOP SURF",
+    price: "SEK 3 951,67",
+  },
+  {
+    id: 3,
+    img: "https://images.blue-tomato.com/is/image/bluetomato/304623573_front.jpg-i0fnFbOj-XsUJrtPZyfgtxwe6Ak/Happy+Hour+Epoxy+7+6+Softtop+Surfboard.jpg?$b8$",
+    name: "OCEAN & EARTH HAPPY HOUR EPOXY ",
+    type: "7'6 SOFTTOP SURFBOARD",
+    price: "SEK 4 887,71",
+  },
+
+  {
+    id: 4,
+    img: "https://images.blue-tomato.com/is/image/bluetomato/304616455_front.jpg-qWVWZ70PcOWSz4ULzn5GkozEiqk/Mid+Length+7+0+Surfboard.jpg?$b8$",
+    name: "INDIO MID LENGTH ",
+    type: " 7'0 SURFBOARD",
+    price: "SEK 5 043,72",
+  },
+
+  {
+    id: 5,
+    img: "https://images.blue-tomato.com/is/image/bluetomato/304199490_front.jpg-pFGyqjyn_3hS2RguBakv3Y_MXx8/II+Toledo+Wildfire+5+3+Softtop+Surfboard.jpg?$b8$",
+    name: "SOFTECH FLASH ERIC GEISELMAN FCS II",
+    type: "6'0 SOFTTOP SURF",
+    price: "SEK 3 951,67",
+  },
+  {
+    id: 6,
+    img: "https://images.blue-tomato.com/is/image/bluetomato/304460624_front.jpg-WUzVagZlKCpUNbSv2lTItMAL-GA/Flash+Eric+Geiselman+FCS+II+6+0+Softtop+Surf.jpg?$b8$",
+    name: "SOFTECH FLASH ERIC GEISELMAN FCS II",
+    type: "6'0 SOFTTOP SURF",
+    price: "SEK 3 951,67",
+  },
+  {
+    id: 7,
+    img: "https://images.blue-tomato.com/is/image/bluetomato/304492933_front.jpg-k2mqU3gQEgX_rVTtEIcRaqONiVw/Odysea+X+Lost+Rnf+6+5+Softtop+Surfboard.jpg?$b8$",
+    name: "SOFTECH FLASH ERIC GEISELMAN FCS II",
+    type: "6'0 SOFTTOP SURF",
+    price: "SEK 3 951,67",
+  },
+  {
+    id: 8,
+    img: "https://images.blue-tomato.com/is/image/bluetomato/304492920_front.jpg-W1XhxSCoUkGU9KUdQwwOtgJq4dk/Odysea+X+Lost+Crowd+Killer+7+2+Softtop+Surfb.jpg?$b8$",
+    name: "SOFTECH FLASH ERIC GEISELMAN FCS II",
+    type: "6'0 SOFTTOP SURF",
+    price: "SEK 3 951,67",
+  },
+];
