@@ -107,7 +107,7 @@ export const SurfboardProducts = [
     id: 4,
     img: "https://images.blue-tomato.com/is/image/bluetomato/304616455_front.jpg-qWVWZ70PcOWSz4ULzn5GkozEiqk/Mid+Length+7+0+Surfboard.jpg?$b8$",
     name: "INDIO MID LENGTH ",
-    type: " 7'0 SURFBOARD",
+    type: " 7'0ft SURFBOARD",
     price: "SEK 5 043,72",
   },
 
