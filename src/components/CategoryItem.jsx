@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import isStyledComponent from "styled-components";
 
 const Container = isStyledComponent.div`
@@ -42,11 +43,14 @@ font-width: 600;
 const CategoryItem = ({ item }) => {
   return (
     <Container>
-      <Image src={item.img} />
-      <Info>
-        <Title>{item.title} </Title>
-        <Button>SHOP NOW</Button>
-      </Info>
+      <Link to="/surfboards">
+        <Image src={item.img} />
+        <Info>
+          <Title>{item.title} </Title>
+
+          <Button>SHOP NOW</Button>
+        </Info>
+      </Link>
     </Container>
   );
 };

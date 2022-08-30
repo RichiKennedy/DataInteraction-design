@@ -1,10 +1,15 @@
 import styled from "styled-components";
-import { SurfboardProducts } from "../data";
+
 import Navbar from "../components/Navbar";
 import Announcements from "../components/Announcements";
 import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
-import Surfboards from "../components/Surfboards";
+
+import { useLocation } from "react-router";
+import { useState } from "react";
+import NewSurfboards from "../components/NewSurfboards";
+// import { useLocation } from "react-router";
+// import { useState } from "react";
 
 const Container = styled.div`
   width: 100vw;
@@ -44,51 +49,52 @@ const SurfboardContainer = styled.div`
 `;
 
 const SurfboardList = () => {
+  const location = useLocation();
+  const cat = location.pathname.split("/")[2];
+  const [filters, setFilters] = useState({});
+  const [sort, setSort] = useState("newest");
+
+  const handleFilters = (e) => {
+    const value = e.target.value;
+    setFilters({
+      ...filters,
+      [e.target.name]: value,
+    });
+  };
+
   return (
     <Container>
       <Announcements />
       <Navbar />
-      <Title> Surfboards </Title>
+      <Title>{cat}</Title>
       <FilterContainer>
         <Filter>
-          <FilterText>Sort Products</FilterText>
-          <Select>
-            <Option disabled selected>
-              Color
-            </Option>
-            <Option>Green</Option>
-            <Option>Zebra</Option>
-            <Option>Beige</Option>
-            <Option>Orange</Option>
-            <Option>Disco Zebra</Option>
-            <Option>Blue</Option>
-            <Option>Gray</Option>
-            <Option>Black</Option>
+          <FilterText>Filter Products:</FilterText>
+          <Select name="color" onChange={handleFilters}>
+            <Option disabled>Color</Option>
+            <Option>green</Option>
+            <Option>zebra</Option>
+            <Option>beige</Option>
+            <Option>orange</Option>
+            <Option>disco zebra</Option>
+            <Option>blue</Option>
+            <Option>gray</Option>
+            <Option>black</Option>
           </Select>
         </Filter>
         <Filter>
-          <FilterText>Sort Products</FilterText>
-          <Select>
-            <Option disabled selected>
-              Price
-            </Option>
-            <Option>Green</Option>
-            <Option>Zebra</Option>
-            <Option>Beige</Option>
-            <Option>Orange</Option>
-            <Option>Disco Zebra</Option>
-            <Option>Blue</Option>
-            <Option>Gray</Option>
-            <Option>Black</Option>
+          <FilterText>Sort Products:</FilterText>
+          <Select onChange={(e) => setSort(e.target.value)}>
+            <Option value="newest">newest</Option>
+            <Option value="highest">price (highest)</Option>
+            <Option value="lowest">price (lowest)</Option>
           </Select>
         </Filter>
       </FilterContainer>
-      <SurfboardContainer>
-        {SurfboardProducts.map((item) => (
-          <Surfboards item={item} key={item.id} />
-        ))}
-      </SurfboardContainer>
 
+      <SurfboardContainer>
+        <NewSurfboards cat={cat} filters={filters} sort={sort} />
+      </SurfboardContainer>
       <Newsletter />
       <Footer />
     </Container>

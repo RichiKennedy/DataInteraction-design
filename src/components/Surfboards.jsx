@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import {
   FavoriteBorderOutlined,
+  SearchOutlined,
   ShoppingCartOutlined,
 } from "@material-ui/icons";
+import { Link } from "react-router-dom";
 
 const Overlay = styled.div`
   opacity: 0;
@@ -54,19 +56,15 @@ const Description = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
 `;
 const Info = styled.h6`
   width: 100%;
   text-align: center;
   margin-top: 5px;
+  font-size: 13px;
 `;
 const Price = styled.h4`
-  width: 100%;
-  text-align: center;
-  margin-top: 5px;
-`;
-const Type = styled.h6`
   width: 100%;
   text-align: center;
   margin-top: 5px;
@@ -94,13 +92,18 @@ const Surfboards = ({ item }) => {
     <Container>
       <Image src={item.img} />
       <Description>
-        <Info> {item.name} </Info>
-        <Type> {item.type} </Type>
-        <Price>{item.price}</Price>
+        <Info> {item.title} </Info>
+
+        <Price>$ {item.price}</Price>
       </Description>
       <Overlay>
         <Icon>
           <ShoppingCartOutlined />
+        </Icon>
+        <Icon>
+          <Link to={`/product/${item._id}`}>
+            <SearchOutlined />
+          </Link>
         </Icon>
         <Icon>
           <FavoriteBorderOutlined />

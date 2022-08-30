@@ -3,12 +3,11 @@ import Announcements from "../components/Announcements";
 import Navbar from "../components/Navbar";
 import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
-import {
-  Add,
-  FavoriteBorder,
-  Remove,
-  ShoppingCartOutlined,
-} from "@material-ui/icons";
+import { Add, FavoriteBorder, Remove } from "@material-ui/icons";
+import { useLocation } from "react-router";
+import { useState } from "react";
+import { useEffect } from "react";
+import { publicRequest } from "../requestMethods";
 
 const Container = styled.div``;
 
@@ -100,36 +99,49 @@ const Icon = styled.button`
 `;
 
 const SingleProduct = () => {
+  const location = useLocation();
+  const id = location.pathname.split("/")[2];
+  const [product, setProduct] = useState({});
+  const [quantity, setQuantity] = useState(1);
+
+  useEffect(() => {
+    const getProduct = async () => {
+      try {
+        const res = await publicRequest.get("/products/find/" + id);
+        setProduct(res.data);
+      } catch {}
+    };
+    getProduct();
+  }, [id]);
+
+  const handleQuantity = (type) => {
+    if (type === "dec") {
+      quantity > 1 && setQuantity(quantity - 1);
+    } else {
+      setQuantity(quantity + 1);
+    }
+  };
+
+  const handleClick = () => {};
   return (
     <Container>
       <Announcements />
       <Navbar />
       <Wrapper>
         <ImageContainer>
-          <Image src="https://images.blue-tomato.com/is/image/bluetomato/304623573_front.jpg-i0fnFbOj-XsUJrtPZyfgtxwe6Ak/Happy+Hour+Epoxy+7+6+Softtop+Surfboard.jpg?$b8$" />
+          <Image src={product.img} />
         </ImageContainer>
         <InfoContainer>
-          <Title>OCEAN & EARTH HAPPY HOUR EPOXY </Title>
-          <Description>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
-            vero quas labore nihil natus, cupiditate exercitationem facere
-            voluptates veritatis impedit, quos saepe debitis aliquid cumque
-            laborum quis iste voluptas sint. Lorem ipsum dolor sit amet
-            consectetur, adipisicing elit. Possimus numquam officia nemo in
-            quidem fugiat est cupiditate! Laborum fugiat, exercitationem illum
-            id fuga accusamus consectetur a aspernatur vel inventore autem.
-          </Description>
-          <Price>$50</Price>
+          <Title> {product.title}</Title>
+          <Description>{product.desc}</Description>
+          <Price>$ {product.price}</Price>
           <OptionWrapper>
             <AmountContainer>
-              <Remove />
-              <Amount> 1 </Amount>
-              <Add />
+              <Remove onClick={() => handleQuantity("dec")} />
+              <Amount>{quantity}</Amount>
+              <Add onClick={() => handleQuantity("inc")} />
             </AmountContainer>
-
-            <Button>
-              Add to cart <ShoppingCartOutlined />
-            </Button>
+            <Button onClick={handleClick}>ADD TO CART</Button>
             <Icon>
               <FavoriteBorder />
             </Icon>
